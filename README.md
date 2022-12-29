@@ -43,6 +43,7 @@ Header.txt format:
 
 Or anything else of http header. If you don't have any idea of this please just use "nil" for using default random header.
 ## Usage
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/murmurlab/golang-httpflood/main/install.sh)"
 
     cd golang-httpflood
     go build httpflood.go
