@@ -1,10 +1,8 @@
 /*
 Coded by LeeOn123
 Please fking code ur script by ur self, kid.
-
 I changed the random integers range to the max of int32.
 Now 386 systems should work well.
-
 Looks like most people want to hit the url but not the host/ip.
 As a result, here you are.
 */
@@ -263,7 +261,7 @@ func main() {
 	} else {
 		key = "&"
 	}
-	input := bufio.NewReader(os.Stdin)
+	//input := bufio.NewReader(os.Stdin)
 
 	for i := 0; i < threads; i++ {
 		time.Sleep(time.Microsecond * 100)
@@ -273,7 +271,7 @@ func main() {
 		//time.Sleep( time.Millisecond * 1)
 	}
 	fmt.Printf("\nPlease [Enter] for continue")
-	_, err = input.ReadString('\n')
+	// _, err = input.ReadString('\n')
 	if err != nil {
 		fmt.Println(err)
 		return
