@@ -28,13 +28,12 @@ Using Golang(net/socket) to httpflood
  - [x] Random Referer(only for http get flood)
 
 
-## Download
-***Please download the F\*cking golang at first.***
+## Installation
+***Automatic installation script.***
 
-Then:
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/murmurlab/golang-httpflood/master/install.sh)"
 
-    git clone https://github.com/Leeon123/golang-httpflood.git
-
+## Usage
 Header.txt format:
 
     Accept: text/html
@@ -42,9 +41,5 @@ Header.txt format:
     Referer: http://google.com
 
 Or anything else of http header. If you don't have any idea of this please just use "nil" for using default random header.
-## Usage
-    bash -c "$(curl -fsSL https://raw.githubusercontent.com/murmurlab/golang-httpflood/main/install.sh)"
 
-    cd golang-httpflood
-    go build httpflood.go
     ./httpflood  <url> <threads> <get/post> <seconds> <header.txt/nil>
