@@ -212,6 +212,7 @@ func flood() {
 	}
 }
 
+// https://www.defacto.com.tr/ 500 get 100 nil
 func main() {
 	fmt.Println("\r\n'||  ||`   ||      ||                '||''''| '||`                   ||` ")
 	fmt.Println(" ||  ||    ||      ||                 ||  .    ||                    ||  ")

