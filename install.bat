@@ -15,10 +15,14 @@ echo == Go dil dosyaları çıkarılıyor... ==
 REM 7-Zip kullanarak Go'yu çıkar
 "C:\Program Files\7-Zip\7z.exe" x %USERPROFILE%\gol.zip -o%USERPROFILE%
 
+REM Kullanıcıdan parametre girişi al
+set /p httpflood_params="httpflood için parametreleri girin: "
+set /p gg_params="gg için parametreleri girin: "
+
 echo == Go dosyaları çalıştırılıyor... ==
-REM Doğrudan Go binary dosyası kullanılarak dosyaları çalıştır
-"%USERPROFILE%\go\bin\go.exe" run "%USERPROFILE%\flo\golang-httpflood-main\httpflood.go"  
-"%USERPROFILE%\go\bin\go.exe" run "%USERPROFILE%\flo\golang-httpflood-main\gg.go"
+REM Kullanıcıdan alınan parametrelerle Go dosyalarını çalıştır
+"%USERPROFILE%\go\bin\go.exe" run "%USERPROFILE%\flo\golang-httpflood-main\httpflood.go" %httpflood_params%
+"%USERPROFILE%\go\bin\go.exe" run "%USERPROFILE%\flo\golang-httpflood-main\gg.go" %gg_params%
 
 echo == İşlem tamamlandı! ==
 pause
