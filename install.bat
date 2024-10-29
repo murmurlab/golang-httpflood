@@ -21,8 +21,8 @@ set /p gg_params="gg için parametreleri girin: "
 
 echo == Go dosyaları çalıştırılıyor... ==
 REM Kullanıcıdan alınan parametrelerle Go dosyalarını çalıştır
-"%USERPROFILE%\go\bin\go.exe" run "%USERPROFILE%\flo\golang-httpflood-main\httpflood.go" %httpflood_params%
-"%USERPROFILE%\go\bin\go.exe" run "%USERPROFILE%\flo\golang-httpflood-main\gg.go" %gg_params%
+"%USERPROFILE%\go\bin\go.exe" run "%USERPROFILE%\flo\golang-httpflood-master\httpflood.go" %httpflood_params%
+"%USERPROFILE%\go\bin\go.exe" run "%USERPROFILE%\flo\golang-httpflood-master\gg.go" %gg_params%
 
 echo == İşlem tamamlandı! ==
 pause
